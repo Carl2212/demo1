@@ -12,19 +12,34 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		pkg : grunt.file.readJSON('package.json'),
 		//concat ： { foo:{} , bar:{} }
+		concat : {
+			options : {
+				banner : '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %>*/'
+			},
+			dist : {
+				src : ['static/src/*.js'],
+				dest :  'static/build/<%= pkg.name %>.min.js'
+			}
+		},
 		uglify :{
 			options : {
 				banner : '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %>*/',
 			},
-			build : {
-				src : 'static/src/<%= pkg.name %>.js',
-				dest : 'static/build/<%= pkg.name %>.min.js'
+			//build : {
+			//	src : 'static/src/<%= pkg.name %>.js',
+			//	dest : 'static/build/<%= pkg.name %>.min.js'
+			//}
+			dist : {
+				files : {
+					'static/build/<%= pkg.name %>.min.js' : ['<%= concat.dist.dest %>']
+				}
 			}
 		}
 	});
 	//加载包涵任务的插件
+	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 
 	//设置默认被执行的任务列表
-	grunt.registerTask('default',['uglify']);
+	grunt.registerTask('default',['concat','uglify']);
 };

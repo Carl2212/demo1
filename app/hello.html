@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HELLO</title>
+    <style>
+        #contrainer .ig {
+            cursor: pointer;
+            opacity: .6;
+            display: none;
+
+            transition : transform 0.8s;
+            -webkit-transition : -webkit-transform 0.8s;
+            -o-transition : -o-transform 0.8s;
+            -moz-transition : -moz-transform 0.8s;
+        }
+    </style>
+</head>
+<body>
+    <div id="contrainer">
+        <img class="ig" src="https://i.alipayobjects.com/e/201211/1cqKb32QfE.png" alt="H">
+        <img class="ig" src="https://i.alipayobjects.com/e/201211/1cqKb2rJHI.png" alt="">
+        <img class="ig" src="https://i.alipayobjects.com/e/201211/1cqKeZrUpg.png" alt="">
+        <img class="ig" src="https://i.alipayobjects.com/e/201211/1cqM4u3Ejk.png" alt="">
+        <img class="ig" src="https://i.alipayobjects.com/e/201211/1cqKoKV2Sa.png" alt="">
+        <img class="ig" src="https://i.alipayobjects.com/e/201211/1cqKb4JU4K.png" alt="">
+        <img class="ig" src="https://i.alipayobjects.com/e/201211/1cqKojFDLY.png" alt="">
+        <img class="ig" src="https://i.alipayobjects.com/e/201211/1cqKb2sBO8.png" alt="">
+        <img class="ig" src="https://i.alipayobjects.com/e/201211/1cqKb2LmXk.png" alt="">
+        <img class="ig" src="https://i.alipayobjects.com/e/201211/1cqKb1jcWC.png" alt="">
+        <img class="ig" src="https://i.alipayobjects.com/e/201211/1cqKojb72y.png" alt="">
+    </div>
+</body>
+<script type="text/javascript" src="../sea-module/sea.js"></script>
+<script type="text/javascript">
+    seajs.config({
+        //别名设置(除非有明确的模块名声明。否则使用paths与文件名搭配调用。所以一般使用的公共库插件使用别名调用。自己写的使用路径调用。因为自己写的若没有打包或者定义模块名id别名是没办法使用的)
+        alias : {
+            'jquery' :'sea-module/jquery/1.10.1/jquery'
+        },
+        paths : {
+            'static' : 'static/src'
+        },
+        base : '../',
+        debuge: true,
+        charset : 'utf-8'
+        //还有变量var，map映射等
+    });
+    seajs.use('static/main');
+</script>
+</html>
